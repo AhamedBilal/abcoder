@@ -6,6 +6,7 @@
 <title>Bilal</title>
 <meta name="description" content="">
 <meta name="author" content="">
+<meta name="theme-color" content="#84db94">
 
 <!-- Favicons
     ================================================== -->
@@ -364,6 +365,28 @@
     <p>&copy; 2018 Ahamed Bilal. All rights reserved.</p>
   </div>
 </div>
+    <script>
+        function getRandomRGBValue() {
+    return Math.min(Math.floor(Math.random() * 255 + 1), 255);
+}
+
+function getRandomColor() {
+    var r = getRandomRGBValue(),
+        g = getRandomRGBValue(),
+        b = getRandomRGBValue();
+    return "#" + (((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1));
+}
+
+function changeThemeColor() {
+    var metaThemeColor = document.querySelector("meta[name=theme-color]");
+    metaThemeColor.setAttribute("content", getRandomColor());
+    setTimeout(function() {
+        changeThemeColor();
+    }, 3000);
+}
+
+changeThemeColor();
+    </script>
 <script type="text/javascript" src="js/jquery.1.11.1.js"></script> 
 <script type="text/javascript" src="js/bootstrap.js"></script> 
 <script type="text/javascript" src="js/SmoothScroll.js"></script> 
